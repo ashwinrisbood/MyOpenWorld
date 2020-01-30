@@ -10,10 +10,8 @@ namespace RPG.Control
 
         private void Update()
         {
-            if (!InteractWithCombat())
-            {
-                InteractWithMovement();
-            }
+            if(InteractWithCombat()) return;
+            if(InteractWithMovement()) return;
         }
 
         private bool InteractWithCombat()
@@ -33,27 +31,23 @@ namespace RPG.Control
             return false;
         }
 
-        private void InteractWithMovement()
+        private bool InteractWithMovement()
         {
-            if (Input.GetMouseButtonDown(1))
-            {
-                MoveToCursor();
-            }
-        }
-
-        //draws the ray
-        //Debug.DrawRay(lastRay.origin, lastRay.direction * 100);
-        private void MoveToCursor()
-        {
+            //draws the ray
+            //Debug.DrawRay(lastRay.origin, lastRay.direction * 100);
             bool hasHit = Physics.Raycast(GetMouseRay(), out RaycastHit hit);
 
             if (hasHit)
             {
-                GetComponent<Mover>().MoveTo(hit.point);
-                //set navmesh agent's destionation to target's position.
+                if (Input.GetMouseButton(1))
+                {
+                    GetComponent<Mover>().MoveTo(hit.point);
+                    //set navmesh agent's destionation to target's position.
+                }
+                return true;
             }
+            return false;
         }
-
         private static Ray GetMouseRay()
         {
             // creates a ray going form the camera to the positon of mouse click.
