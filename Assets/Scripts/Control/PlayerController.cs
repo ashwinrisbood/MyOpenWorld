@@ -19,12 +19,11 @@ namespace RPG.Control
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
             foreach(RaycastHit hit in hits)
             {
-                if(hit.transform.GetComponent<CombatTarget>() != null)
+                CombatTarget combatTarget = hit.transform.GetComponent<CombatTarget>();
+                if (combatTarget == null) continue;
+                if (Input.GetMouseButton(1))
                 {
-                    if (Input.GetMouseButtonDown(1))
-                    {
-                        GetComponent<Fighter>().Attack();
-                    }
+                    GetComponent<Fighter>().Attack(combatTarget);
                     return true;
                 }
             }
@@ -41,7 +40,7 @@ namespace RPG.Control
             {
                 if (Input.GetMouseButton(1))
                 {
-                    GetComponent<Mover>().MoveTo(hit.point);
+                    GetComponent<Mover>().StartMoveAction(hit.point);
                     //set navmesh agent's destionation to target's position.
                 }
                 return true;
