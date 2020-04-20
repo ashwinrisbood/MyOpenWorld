@@ -4,20 +4,22 @@ namespace RPG.Core
 {
     public class ActionScheduler : MonoBehaviour
     {
-        MonoBehaviour currentAction;
+        IAction currentAction;
 
         public ActionScheduler()
         {
             currentAction = null;
         }
 
-        public void StartAction(MonoBehaviour action)
+        public void StartAction(IAction action)
         {
+            if (currentAction == action) return;
             if(currentAction != null)
             {
-                Debug.Log("cancelling action" + currentAction);
+                Debug.Log(currentAction.ToString() + "cancelled");
+                currentAction.Cancel();
             }
-
+            currentAction = action;
             Debug.Log("starting action");
         }
     }
