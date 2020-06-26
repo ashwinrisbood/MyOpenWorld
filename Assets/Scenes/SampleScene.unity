@@ -1101,6 +1101,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d556d30cab334dd449000218c87322ef, type: 3}
+--- !u!1 &1225204983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1970707341200452280, guid: 2fc528e42995fb5479127e155fa4b375,
+    type: 3}
+  m_PrefabInstance: {fileID: 3886164799297906744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1225204989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225204983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5737613dc7036140928224d1f29292e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
 --- !u!1001 &1352562868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1465,6 +1484,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 274530789435255448, guid: b32aa8cc79439b14f8b54e69b5bb90fb,
+        type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 274530789435255448, guid: b32aa8cc79439b14f8b54e69b5bb90fb,
+        type: 3}
+      propertyPath: weaponDamage
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b32aa8cc79439b14f8b54e69b5bb90fb, type: 3}

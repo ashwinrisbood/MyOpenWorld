@@ -10,7 +10,8 @@ namespace RPG.Control
 
         private void Update()
         {
-            if(InteractWithCombat()) return;
+            // mouse affordance.
+            if(InteractWithCombat()) return; //higher priority then movement.
             if(InteractWithMovement()) return;
         }
 
@@ -20,7 +21,7 @@ namespace RPG.Control
             foreach(RaycastHit hit in hits)
             {
                 CombatTarget combatTarget = hit.transform.GetComponent<CombatTarget>();
-                if (combatTarget == null) continue;
+                if (!GetComponent<Fighter>().CanAttack(combatTarget)) continue;
                 if (Input.GetMouseButton(1))
                 {
                     GetComponent<Fighter>().Attack(combatTarget);
